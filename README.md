@@ -38,6 +38,49 @@ Este repositório contém o código-fonte de uma Interface Web de Monitoramento 
 - python-routeros (ou similar): Biblioteca Python para estabelecer a conexão, autenticação e comunicação via Mikrotik RouterOS API.
 - Eventlet (ou gevent): Biblioteca de rede assíncrona utilizada pelo Socket.IO para lidar eficientemente com múltiplas conexões concorrentes.
 
+### Dependências
+
+Antes de rodar baixe:
+```
+pip install -r requirements.txt
+```
+
+### 🔬 Teste de Funcionamento e Comprovação
+
+Esta seção demonstra como comprovar a funcionalidade em tempo real da interface web, atendendo ao requisito de apresentação.
+
+- Pré-requisito
+Certifique-se de que a aplicação Python (app.py) esteja rodando e que o navegador esteja aberto em http://127.0.0.1:5000/.
+
+- Passo a Passo do Teste
+1. Acesse o Mikrotik: Use o Winbox e conecte-se ao seu roteador virtual (MIKROTIK_HOST).
+
+2. Abra o Bandwidth Test: No Winbox, navegue até Tools (Ferramentas) → Bandwidth Test.
+
+3. Configurar o Teste:
+
+- Interface: A interface que você está monitorando (ex: ether2 ou bridge-local).
+
+- Protocol: Use TCP (recomendado para gerar tráfego constante).
+
+- Direction: Escolha both (ambos: RX e TX) para simular tráfego de subida e descida.
+
+- User/Password: Deixe em branco, ou use credenciais de teste.
+
+- Iniciar o Teste de Tráfego: Clique em Start no Winbox.
+
+Observação da Interface:
+
+- Imediatamente, observe a interface web aberta no seu navegador.
+
+- O gráfico de linha (trafficChart) deve registrar um pico nos dados de RX e TX.
+
+- Os valores numéricos sob o gráfico (RX (Download) e TX (Upload)) devem exibir as taxas de transferência em KB/s ou MB/s.
+
+- Parar o Teste: Clique em Stop no Winbox.
+
+Comprovação: Após interromper o teste, o gráfico deve retornar rapidamente aos níveis de tráfego de baseline (próximo de zero), comprovando a comunicação contínua e em tempo real com o roteador.
+
 ## 👥 Equipe
 
 **Este projeto foi desenvolvido por:**

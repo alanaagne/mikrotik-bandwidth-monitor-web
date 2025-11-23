@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikrotik Live Bandwidth Monitor</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>📊 Monitoramento de Bandwidth do Mikrotik</h1>
+        <p class="status-info">Monitorando interface: <span id="interface-name">Loading...</span></p>
+        
+        <div class="chart-container">
+            <canvas id="trafficChart"></canvas>
+        </div>
+        
+        <div class="current-values">
+            <p>📥 RX (Download): <span id="rx-value">0 B/s</span></p>
+            <p>📤 TX (Upload): <span id="tx-value">0 B/s</span></p>
+        </div>
+        
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

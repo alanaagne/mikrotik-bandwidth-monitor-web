@@ -1,0 +1,9 @@
+# .gitignore
+
+# Ignorar o ambiente virtual do Python
+venv/
+__pycache__/
+*.pyc
+
+# Ignorar arquivos de dados e credenciais
+.env

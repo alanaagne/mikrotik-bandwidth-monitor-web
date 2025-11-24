@@ -3,7 +3,7 @@ const MAX_DATA_POINTS = 30;
 let trafficChart;
 
 function initializeChart() {
-    console.log("📊 Inicializando gráfico...");
+    console.log("Inicializando gráfico...");
     const ctx = document.getElementById('trafficChart').getContext('2d');
     
     trafficChart = new Chart(ctx, {
@@ -50,7 +50,7 @@ function initializeChart() {
             }
         }
     });
-    console.log("✅ Gráfico inicializado!");
+    console.log("Gráfico inicializado!");
 }
 
 function formatBytes(bytes) {
@@ -72,7 +72,7 @@ async function fetchTrafficData() {
         
         const data = await response.json();
         
-        console.log("📡 Dados recebidos:", data);
+        console.log("Dados recebidos:", data);
         
         // Atualiza os valores numéricos
         document.getElementById('rx-value').textContent = formatBytes(data.rx);
@@ -99,7 +99,7 @@ async function fetchTrafficData() {
         return true;
         
     } catch (error) {
-        console.log("❌ Erro ao buscar dados:", error);
+        console.log("Erro ao buscar dados:", error);
         document.getElementById('interface-name').textContent = 'ether1 (Erro)';
         return false;
     }
@@ -107,7 +107,7 @@ async function fetchTrafficData() {
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("🚀 Página carregada - inicializando Polling Manual...");
+    console.log("Página carregada - inicializando Polling Manual...");
     
     // Inicia o gráfico
     initializeChart();
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeira busca imediata
     setTimeout(fetchTrafficData, 500);
     
-    console.log("🎯 Polling Manual Iniciado - Dados a cada 1 segundo");
+    console.log("Polling Manual Iniciado - Dados a cada 1 segundo");
 });
 
 // Função para teste manual
@@ -128,6 +128,6 @@ function testManual() {
         trafficChart.data.datasets[0].data.push(1000000);
         trafficChart.data.datasets[1].data.push(500000);
         trafficChart.update();
-        console.log("🧪 Teste manual aplicado!");
+        console.log("Teste manual aplicado!");
     }
 }

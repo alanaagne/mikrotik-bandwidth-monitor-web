@@ -38,7 +38,7 @@ def collect_traffic_data():
                 'timestamp': time.time() * 1000
             }
             
-            print(f"📊 Dados: RX={rx_bytes:.0f}B/s, TX={tx_bytes:.0f}B/s")
+            print(f"Dados: RX={rx_bytes:.0f}B/s, TX={tx_bytes:.0f}B/s")
             pool.disconnect()
             return payload
         
@@ -46,19 +46,19 @@ def collect_traffic_data():
         return None
         
     except Exception as e:
-        print(f"❌ Erro na coleta: {e}")
+        print(f"Erro na coleta: {e}")
         return None
 
 @app.route('/')
 def index():
     """Página principal."""
-    print("🌐 Página acessada - servindo index.html")
+    print("Página acessada - servindo index.html")
     return render_template('index.html')
 
 @app.route('/api/traffic')
 def api_traffic():
     """API para dados de tráfego."""
-    print("📡 API acessada")
+    print("API acessada")
     data = collect_traffic_data()
     if data:
         return jsonify(data)
@@ -66,5 +66,5 @@ def api_traffic():
         return jsonify({'rx': 0, 'tx': 0, 'timestamp': time.time() * 1000})
 
 if __name__ == '__main__':
-    print("🌐 Servidor Mikrotik Monitor rodando em http://127.0.0.1:5000")
+    print("Servidor Mikrotik Monitor rodando em http://127.0.0.1:5000")
     app.run(host='127.0.0.1', port=5000, debug=True)
